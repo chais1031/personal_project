@@ -49,7 +49,7 @@ model.add(Dense(num_classes))
 model.add(Activation('softmax'))
 
 # initiate RMSprop optimizer
-opt = keras.optimizers.Adagard()
+opt = keras.optimizers.Adam(learning_rate=0.001, beta_1=0.9, beta_2=0.999, amsgrad=False)
 
 # Let's train the model using RMSprop
 model.compile(loss='categorical_crossentropy',
