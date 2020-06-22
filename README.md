@@ -24,7 +24,7 @@ CIFAR10 dataset was used to replicate the findings from the paper 'ImageNet-trai
 
 Each jupyter notebook contains code used to load, normalise and split the CIFAR10 images in the format that the ResNet50 could train and test on, model architecture and model training/testing results on different images. Seven such notebooks are included in this repository which are listed below in the model name (introduced in the project report), file pairs.
 
-* ORIG_MODEL [natural_experiment/CIFAR10 ResNet50 Model.ipynb](natural_experiment/CIFAR10 ResNet50 Model.ipynb)
+* ORIG_MODEL [natural_experiment/CIFAR10 ResNet50 Model.ipynb](natural_experiment/CIFAR10\ ResNet50\ Model.ipynb)
 * STY_MODEL
 * STY_RED_MODEL
 * ORIG_TORCH
@@ -53,4 +53,4 @@ Publicly available datasets from [Developing Human Connectome Project](http://ww
 * N=10 MODEL_GAUS134_SNP10
 * N=11 MODEL_MEDIAN5
 
-The test configuarations files under [medical_experiment/test_config](medical_experiment/test_config/) follow the naming convention testConfigN_dataset where dataset is the held-out test set used to test the model. Test log files under [medical_experiment/text_logs](medical_experiment/text_logs/) are named likewise.
+The test configuarations files under [medical_experiment/test_config](medical_experiment/test_config/) follow the naming convention testConfigN_dataset where dataset is the held-out test set used to test the model. Test log files under [medical_experiment/test_logs](medical_experiment/text_logs/) are named likewise.
