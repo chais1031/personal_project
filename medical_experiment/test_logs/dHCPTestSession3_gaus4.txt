@@ -1,0 +1,719 @@
+2020-6-12 20:21:4.01: =============================== logger created =======================================
+2020-6-12 20:21:4.01: 
+2020-6-12 20:21:4.02: ======================== Starting new session ============================
+2020-6-12 20:21:4.02: Command line arguments given: 
+Namespace(device='cuda', model_cfg='examples/configFiles/models/dHCP/modelConfig.cfg', reset_trainer=False, saved_model='./examples/dHCPoutput/saved_models/dHCPTrainingSession3/dHCPmodel1.dHCPTrainingSession3.final.2020-06-10.14.06.59.988103.model.ckpt', test_cfg='./examples/configFiles/test/test3/testConfig3_gaus4.cfg', train_cfg=None)
+2020-6-12 20:21:4.33: Available devices to Tensorflow:
+[name: "/device:CPU:0"
+device_type: "CPU"
+memory_limit: 268435456
+locality {
+}
+incarnation: 17232284556031910518
+, name: "/device:XLA_CPU:0"
+device_type: "XLA_CPU"
+memory_limit: 17179869184
+locality {
+}
+incarnation: 502386343723769554
+physical_device_desc: "device: XLA_CPU device"
+, name: "/device:XLA_GPU:0"
+device_type: "XLA_GPU"
+memory_limit: 17179869184
+locality {
+}
+incarnation: 11857925705900036135
+physical_device_desc: "device: XLA_GPU device"
+, name: "/device:GPU:0"
+device_type: "GPU"
+memory_limit: 11330115994
+locality {
+  bus_id: 2
+  numa_node: 1
+  links {
+  }
+}
+incarnation: 14062779255416337635
+physical_device_desc: "device: 0, name: Tesla K80, pci bus id: 0000:8d:00.0, compute capability: 3.7"
+]
+2020-6-12 20:21:4.33: CONFIG: The configuration file for the [model] given is: /vol/bitbucket/sc5316/deepmedic/examples/configFiles/models/dHCP/modelConfig.cfg
+2020-6-12 20:21:4.33: =============================================================
+2020-6-12 20:21:4.33: ========== PARAMETERS FOR MAKING THE ARCHITECTURE ===========
+2020-6-12 20:21:4.33: =============================================================
+2020-6-12 20:21:4.33: CNN model's name = dHCPmodel1
+2020-6-12 20:21:4.33: ~~~~~~~~~~~~~~~~~~Model parameters~~~~~~~~~~~~~~~~
+2020-6-12 20:21:4.33: Number of Classes (including background) = 10
+2020-6-12 20:21:4.33: ~~Normal Pathway~~
+2020-6-12 20:21:4.33: Number of Input Channels = 1
+2020-6-12 20:21:4.33: Number of Layers = 8
+2020-6-12 20:21:4.33: Number of Feature Maps per layer = [30, 30, 40, 40, 40, 40, 50, 50]
+2020-6-12 20:21:4.34: Kernel Dimensions per layer = [[3, 3, 3], [3, 3, 3], [3, 3, 3], [3, 3, 3], [3, 3, 3], [3, 3, 3], [3, 3, 3], [3, 3, 3]]
+2020-6-12 20:21:4.34: Receptive Field = [17, 17, 17]
+2020-6-12 20:21:4.34: Padding mode of convs per layer = ['VALID', 'VALID', 'VALID', 'VALID', 'VALID', 'VALID', 'VALID', 'VALID']
+2020-6-12 20:21:4.34: Residual connections added at the output of layers (indices from 0) = [3, 5, 7]
+2020-6-12 20:21:4.34: Layers that will be made of Lower Rank (indices from 0) = []
+2020-6-12 20:21:4.34: Lower Rank layers will be made of rank = []
+2020-6-12 20:21:4.34: ~~Subsampled Pathway~~
+2020-6-12 20:21:4.34: Use subsampled Pathway = True
+2020-6-12 20:21:4.34: Number of subsampled pathways that will be built = 2
+2020-6-12 20:21:4.34: Number of Layers (per sub-pathway) = [8, 8]
+2020-6-12 20:21:4.34: Number of Feature Maps per layer (per sub-pathway) = [[30, 30, 40, 40, 40, 40, 50, 50], [30, 30, 40, 40, 40, 40, 50, 50]]
+2020-6-12 20:21:4.34: Kernel Dimensions per layer = [[3, 3, 3], [3, 3, 3], [3, 3, 3], [3, 3, 3], [3, 3, 3], [3, 3, 3], [3, 3, 3], [3, 3, 3]]
+2020-6-12 20:21:4.34: Receptive Field = [17, 17, 17]
+2020-6-12 20:21:4.34: Padding mode of convs per layer = ['VALID', 'VALID', 'VALID', 'VALID', 'VALID', 'VALID', 'VALID', 'VALID']
+2020-6-12 20:21:4.34: Subsampling Factor per dimension (per sub-pathway) = [[3, 3, 3], [5, 5, 5]]
+2020-6-12 20:21:4.34: Residual connections added at the output of layers (indices from 0) = [3, 5, 7]
+2020-6-12 20:21:4.34: Layers that will be made of Lower Rank (indices from 0) = []
+2020-6-12 20:21:4.35: Lower Rank layers will be made of rank = []
+2020-6-12 20:21:4.35: ~~Fully Connected Pathway~~
+2020-6-12 20:21:4.35: Number of additional FC layers (Excluding the Classif. Layer) = 2
+2020-6-12 20:21:4.35: Number of Feature Maps in the additional FC layers = [250, 250]
+2020-6-12 20:21:4.35: Padding mode of convs per layer = ['mirror', None, None]
+2020-6-12 20:21:4.35: Residual connections added at the output of layers (indices from 0) = [1]
+2020-6-12 20:21:4.35: Layers that will be made of Lower Rank (indices from 0) = []
+2020-6-12 20:21:4.35: Dimensions of Kernels in final FC path before classification = [[3, 3, 3], [1, 1, 1], [1, 1, 1]]
+2020-6-12 20:21:4.35: ~~Size Of Image Segments~~
+2020-6-12 20:21:4.35: Size of Segments for Training = [25, 25, 25]
+2020-6-12 20:21:4.35: Size of Segments for Validation = [17, 17, 17]
+2020-6-12 20:21:4.35: Size of Segments for Testing = [45, 45, 45]
+2020-6-12 20:21:4.35: ~~Dropout Rates~~
+2020-6-12 20:21:4.35: Drop.R. for each layer in Normal Pathway = []
+2020-6-12 20:21:4.35: Drop.R. for each layer in Subsampled Pathway = []
+2020-6-12 20:21:4.35: Drop.R. for each layer in FC Pathway (additional FC layers + Classific.Layer at end) = [0.0, 0.5, 0.5]
+2020-6-12 20:21:4.35: ~~Weight Initialization~~
+2020-6-12 20:21:4.35: Initialization method and params for the conv kernel weights = ['fanIn', 2]
+2020-6-12 20:21:4.35: ~~Activation Function~~
+2020-6-12 20:21:4.35: Activation function to use = prelu
+2020-6-12 20:21:4.35: ~~Batch Normalization~~
+2020-6-12 20:21:4.35: Apply BN straight on pathways' inputs (eg straight on segments) = [False, False, True]
+2020-6-12 20:21:4.35: Batch Normalization uses a rolling average for inference, over this many batches = 60
+2020-6-12 20:21:4.36: ========== Done with printing session's parameters ==========
+2020-6-12 20:21:4.36: =============================================================
+2020-6-12 20:21:4.36: CONFIG: The configuration file for the [session] was loaded from: /vol/bitbucket/sc5316/deepmedic/examples/configFiles/test/test3/testConfig3_gaus4.cfg
+2020-6-12 20:21:4.36: 
+2020-6-12 20:21:4.36: ============     NEW TESTING SESSION    ===============
+2020-6-12 20:21:4.36: 
+2020-6-12 20:21:4.36: =============================================================
+2020-6-12 20:21:4.36: =========== PARAMETERS OF THIS TESTING SESSION ==============
+2020-6-12 20:21:4.36: =============================================================
+2020-6-12 20:21:4.36: sessionName = dHCPTestSession3_gaus4
+2020-6-12 20:21:4.36: Model will be loaded from save = /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/saved_models/dHCPTrainingSession3/dHCPmodel1.dHCPTrainingSession3.final.2020-06-10.14.06.59.988103.model.ckpt
+2020-6-12 20:21:4.36: ~~~~~~~~~~~~~~~~~~~~INPUT~~~~~~~~~~~~~~~~
+2020-6-12 20:21:4.36: Number of cases to perform inference on = 10
+2020-6-12 20:21:4.36: Paths to the channels of each case = [['/vol/bitbucket/sc5316/dHCP/t2normgaus4/sub-CC00687XX20_ses-199000_T2w.nii.gz'], ['/vol/bitbucket/sc5316/dHCP/t2normgaus4/sub-CC00688XX21_ses-199500_T2w.nii.gz'], ['/vol/bitbucket/sc5316/dHCP/t2normgaus4/sub-CC00766XX16_ses-4200_T2w.nii.gz'], ['/vol/bitbucket/sc5316/dHCP/t2normgaus4/sub-CC00768XX18_ses-236400_T2w.nii.gz'], ['/vol/bitbucket/sc5316/dHCP/t2normgaus4/sub-CC00770XX12_ses-1100_T2w.nii.gz'], ['/vol/bitbucket/sc5316/dHCP/t2normgaus4/sub-CC00770XX12_ses-238000_T2w.nii.gz'], ['/vol/bitbucket/sc5316/dHCP/t2normgaus4/sub-CC00771XX13_ses-17710_T2w.nii.gz'], ['/vol/bitbucket/sc5316/dHCP/t2normgaus4/sub-CC00777XX19_ses-239102_T2w.nii.gz'], ['/vol/bitbucket/sc5316/dHCP/t2normgaus4/sub-CC00785XX19_ses-240700_T2w.nii.gz'], ['/vol/bitbucket/sc5316/dHCP/t2normgaus4/sub-CC00787XX21_ses-19010_T2w.nii.gz']]
+2020-6-12 20:21:4.37: Paths to provided GT labels per case = ['/vol/bitbucket/sc5316/dHCP/segmentations/sub-CC00687XX20_ses-199000_desc-drawem9_space-T2w_dseg.nii.gz', '/vol/bitbucket/sc5316/dHCP/segmentations/sub-CC00688XX21_ses-199500_desc-drawem9_space-T2w_dseg.nii.gz', '/vol/bitbucket/sc5316/dHCP/segmentations/sub-CC00766XX16_ses-4200_desc-drawem9_space-T2w_dseg.nii.gz', '/vol/bitbucket/sc5316/dHCP/segmentations/sub-CC00768XX18_ses-236400_desc-drawem9_space-T2w_dseg.nii.gz', '/vol/bitbucket/sc5316/dHCP/segmentations/sub-CC00770XX12_ses-1100_desc-drawem9_space-T2w_dseg.nii.gz', '/vol/bitbucket/sc5316/dHCP/segmentations/sub-CC00770XX12_ses-238000_desc-drawem9_space-T2w_dseg.nii.gz', '/vol/bitbucket/sc5316/dHCP/segmentations/sub-CC00771XX13_ses-17710_desc-drawem9_space-T2w_dseg.nii.gz', '/vol/bitbucket/sc5316/dHCP/segmentations/sub-CC00777XX19_ses-239102_desc-drawem9_space-T2w_dseg.nii.gz', '/vol/bitbucket/sc5316/dHCP/segmentations/sub-CC00785XX19_ses-240700_desc-drawem9_space-T2w_dseg.nii.gz', '/vol/bitbucket/sc5316/dHCP/segmentations/sub-CC00787XX21_ses-19010_desc-drawem9_space-T2w_dseg.nii.gz']
+2020-6-12 20:21:4.37: Filepaths of the ROI Masks provided per case = None
+2020-6-12 20:21:4.37: Batch size = 10
+2020-6-12 20:21:4.37: ~~~~~~~~~~~~~~~~~~~OUTPUT~~~~~~~~~~~~~~~
+2020-6-12 20:21:4.37: Path to the main output-folder = /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput
+2020-6-12 20:21:4.37: Provided names to use to save results for each case = ['sub-CC00687XX20_ses-199000_desc-drawem9_space-T2w_dseg_gaus4.nii.gz', 'sub-CC00688XX21_ses-199500_desc-drawem9_space-T2w_dseg_gaus4.nii.gz', 'sub-CC00766XX16_ses-4200_desc-drawem9_space-T2w_dseg_gaus4.nii.gz', 'sub-CC00768XX18_ses-236400_desc-drawem9_space-T2w_dseg_gaus4.nii.gz', 'sub-CC00770XX12_ses-1100_desc-drawem9_space-T2w_dseg_gaus4.nii.gz', 'sub-CC00770XX12_ses-238000_desc-drawem9_space-T2w_dseg_gaus4.nii.gz', 'sub-CC00771XX13_ses-17710_desc-drawem9_space-T2w_dseg_gaus4.nii.gz', 'sub-CC00777XX19_ses-239102_desc-drawem9_space-T2w_dseg_gaus4.nii.gz', 'sub-CC00785XX19_ses-240700_desc-drawem9_space-T2w_dseg_gaus4.nii.gz', 'sub-CC00787XX21_ses-19010_desc-drawem9_space-T2w_dseg_gaus4.nii.gz']
+2020-6-12 20:21:4.37: ~~~~~~~Ouput-parameters for Predictions (segmentation and probability maps)~~~~
+2020-6-12 20:21:4.37: Save the predicted segmentation = True
+2020-6-12 20:21:4.37: Save the probability maps = [True, True, True, True, True, True, True, True, True, True]
+2020-6-12 20:21:4.37: Paths where to save predictions per case = ['/vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions//sub-CC00687XX20_ses-199000_desc-drawem9_space-T2w_dseg_gaus4.nii.gz', '/vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions//sub-CC00688XX21_ses-199500_desc-drawem9_space-T2w_dseg_gaus4.nii.gz', '/vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions//sub-CC00766XX16_ses-4200_desc-drawem9_space-T2w_dseg_gaus4.nii.gz', '/vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions//sub-CC00768XX18_ses-236400_desc-drawem9_space-T2w_dseg_gaus4.nii.gz', '/vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions//sub-CC00770XX12_ses-1100_desc-drawem9_space-T2w_dseg_gaus4.nii.gz', '/vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions//sub-CC00770XX12_ses-238000_desc-drawem9_space-T2w_dseg_gaus4.nii.gz', '/vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions//sub-CC00771XX13_ses-17710_desc-drawem9_space-T2w_dseg_gaus4.nii.gz', '/vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions//sub-CC00777XX19_ses-239102_desc-drawem9_space-T2w_dseg_gaus4.nii.gz', '/vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions//sub-CC00785XX19_ses-240700_desc-drawem9_space-T2w_dseg_gaus4.nii.gz', '/vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions//sub-CC00787XX21_ses-19010_desc-drawem9_space-T2w_dseg_gaus4.nii.gz']
+2020-6-12 20:21:4.37: Suffixes with which to save segmentations and probability maps = {'segm': 'Segm', 'prob': 'ProbMapClass'}
+2020-6-12 20:21:4.37: ~~~~~~~Ouput-parameters for Feature Maps (FMs)~~~~~~
+2020-6-12 20:21:4.37: Save FMs in individual images = False
+2020-6-12 20:21:4.37: Indices of min/max FMs to save, per type of pathway (normal/subsampled/FC) and per layer = None
+2020-6-12 20:21:4.37: Save Feature Maps at = ['/vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/features//sub-CC00687XX20_ses-199000_desc-drawem9_space-T2w_dseg_gaus4.nii.gz', '/vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/features//sub-CC00688XX21_ses-199500_desc-drawem9_space-T2w_dseg_gaus4.nii.gz', '/vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/features//sub-CC00766XX16_ses-4200_desc-drawem9_space-T2w_dseg_gaus4.nii.gz', '/vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/features//sub-CC00768XX18_ses-236400_desc-drawem9_space-T2w_dseg_gaus4.nii.gz', '/vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/features//sub-CC00770XX12_ses-1100_desc-drawem9_space-T2w_dseg_gaus4.nii.gz', '/vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/features//sub-CC00770XX12_ses-238000_desc-drawem9_space-T2w_dseg_gaus4.nii.gz', '/vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/features//sub-CC00771XX13_ses-17710_desc-drawem9_space-T2w_dseg_gaus4.nii.gz', '/vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/features//sub-CC00777XX19_ses-239102_desc-drawem9_space-T2w_dseg_gaus4.nii.gz', '/vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/features//sub-CC00785XX19_ses-240700_desc-drawem9_space-T2w_dseg_gaus4.nii.gz', '/vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/features//sub-CC00787XX21_ses-19010_desc-drawem9_space-T2w_dseg_gaus4.nii.gz']
+2020-6-12 20:21:4.37: ~~~~~~~~~~~~~~~~~~ PRE-PROCESSING ~~~~~~~~~~~~~~~~
+2020-6-12 20:21:4.37: ~~Data Compabitibility Checks~~
+2020-6-12 20:21:4.37: Check whether input data has correct format (can slow down process) = True
+2020-6-12 20:21:4.37: ~~Padding~~
+2020-6-12 20:21:4.37: Pad Input Images = True
+2020-6-12 20:21:4.38: ~~Intensity Normalization~~
+2020-6-12 20:21:4.38: Verbosity level = 0
+2020-6-12 20:21:4.38: Z-Score parameters = {'apply_to_all_channels': False, 'apply_per_channel': None, 'cutoff_percents': [5.0, 95.0], 'cutoff_times_std': [3.0, 3.0], 'cutoff_below_mean': False}
+2020-6-12 20:21:4.38: ========== Done with printing session's parameters ==========
+2020-6-12 20:21:4.38: =============================================================
+
+2020-6-12 20:21:4.38: =======================================================
+
+2020-6-12 20:21:4.38: =========== Making the CNN graph... ===============
+2020-6-12 20:21:4.38: ...Building the CNN model...
+2020-6-12 20:21:4.38: [Pathway_NORMAL] is being built...
+2020-6-12 20:21:4.38: 	Block [0], FMs-In: 1, FMs-Out: 30, Conv Filter dimensions: [3, 3, 3]
+2020-6-12 20:21:4.39: 	Block [1], FMs-In: 30, FMs-Out: 30, Conv Filter dimensions: [3, 3, 3]
+2020-6-12 20:21:4.43: 	Block [2], FMs-In: 30, FMs-Out: 40, Conv Filter dimensions: [3, 3, 3]
+2020-6-12 20:21:4.47: 	Block [3], FMs-In: 40, FMs-Out: 40, Conv Filter dimensions: [3, 3, 3]
+2020-6-12 20:21:4.51: 	Block [4], FMs-In: 40, FMs-Out: 40, Conv Filter dimensions: [3, 3, 3]
+2020-6-12 20:21:4.54: 	Block [5], FMs-In: 40, FMs-Out: 40, Conv Filter dimensions: [3, 3, 3]
+2020-6-12 20:21:4.58: 	Block [6], FMs-In: 40, FMs-Out: 50, Conv Filter dimensions: [3, 3, 3]
+2020-6-12 20:21:4.62: 	Block [7], FMs-In: 50, FMs-Out: 50, Conv Filter dimensions: [3, 3, 3]
+2020-6-12 20:21:4.66: [Pathway_SUBSAMPLED[3, 3, 3]] is being built...
+2020-6-12 20:21:4.66: 	Block [0], FMs-In: 1, FMs-Out: 30, Conv Filter dimensions: [3, 3, 3]
+2020-6-12 20:21:4.67: 	Block [1], FMs-In: 30, FMs-Out: 30, Conv Filter dimensions: [3, 3, 3]
+2020-6-12 20:21:4.70: 	Block [2], FMs-In: 30, FMs-Out: 40, Conv Filter dimensions: [3, 3, 3]
+2020-6-12 20:21:4.74: 	Block [3], FMs-In: 40, FMs-Out: 40, Conv Filter dimensions: [3, 3, 3]
+2020-6-12 20:21:4.78: 	Block [4], FMs-In: 40, FMs-Out: 40, Conv Filter dimensions: [3, 3, 3]
+2020-6-12 20:21:4.81: 	Block [5], FMs-In: 40, FMs-Out: 40, Conv Filter dimensions: [3, 3, 3]
+2020-6-12 20:21:4.85: 	Block [6], FMs-In: 40, FMs-Out: 50, Conv Filter dimensions: [3, 3, 3]
+2020-6-12 20:21:4.88: 	Block [7], FMs-In: 50, FMs-Out: 50, Conv Filter dimensions: [3, 3, 3]
+2020-6-12 20:21:4.92: [Pathway_SUBSAMPLED[5, 5, 5]] is being built...
+2020-6-12 20:21:4.92: 	Block [0], FMs-In: 1, FMs-Out: 30, Conv Filter dimensions: [3, 3, 3]
+2020-6-12 20:21:4.93: 	Block [1], FMs-In: 30, FMs-Out: 30, Conv Filter dimensions: [3, 3, 3]
+2020-6-12 20:21:4.96: 	Block [2], FMs-In: 30, FMs-Out: 40, Conv Filter dimensions: [3, 3, 3]
+2020-6-12 20:21:4.99: 	Block [3], FMs-In: 40, FMs-Out: 40, Conv Filter dimensions: [3, 3, 3]
+2020-6-12 20:21:5.03: 	Block [4], FMs-In: 40, FMs-Out: 40, Conv Filter dimensions: [3, 3, 3]
+2020-6-12 20:21:5.06: 	Block [5], FMs-In: 40, FMs-Out: 40, Conv Filter dimensions: [3, 3, 3]
+2020-6-12 20:21:5.09: 	Block [6], FMs-In: 40, FMs-Out: 50, Conv Filter dimensions: [3, 3, 3]
+2020-6-12 20:21:5.13: 	Block [7], FMs-In: 50, FMs-Out: 50, Conv Filter dimensions: [3, 3, 3]
+2020-6-12 20:21:5.16: [Pathway_FC] is being built...
+2020-6-12 20:21:5.16: 	Block [0], FMs-In: 150, FMs-Out: 250, Conv Filter dimensions: [3, 3, 3]
+2020-6-12 20:21:5.26: 	Block [1], FMs-In: 250, FMs-Out: 250, Conv Filter dimensions: [1, 1, 1]
+2020-6-12 20:21:5.30: 	Block [2], FMs-In: 250, FMs-Out: 10, Conv Filter dimensions: [1, 1, 1]
+2020-6-12 20:21:5.33: Adding the final Softmax layer...
+2020-6-12 20:21:5.33: Finished building the CNN's model.
+2020-6-12 20:21:5.34: Pathway [NORMAL], Mode: [infer], Input's Shape: (?, 1, 45, 45, 45)
+2020-6-12 20:21:5.34: 	Block [0], Mode: [infer], Input's Shape: (?, 1, 45, 45, 45)
+2020-6-12 20:21:5.34: 	Block [1], Mode: [infer], Input's Shape: (?, 30, 43, 43, 43)
+2020-6-12 20:21:5.36: 	Block [2], Mode: [infer], Input's Shape: (?, 30, 41, 41, 41)
+2020-6-12 20:21:5.39: 	Block [3], Mode: [infer], Input's Shape: (?, 40, 39, 39, 39)
+2020-6-12 20:21:5.41: 	Residual-Connection made between: output of [Block_3] & input of previous block.
+2020-6-12 20:21:5.48: 	Block [4], Mode: [infer], Input's Shape: (?, 40, 37, 37, 37)
+2020-6-12 20:21:5.50: 	Block [5], Mode: [infer], Input's Shape: (?, 40, 35, 35, 35)
+2020-6-12 20:21:5.52: 	Residual-Connection made between: output of [Block_5] & input of previous block.
+2020-6-12 20:21:5.59: 	Block [6], Mode: [infer], Input's Shape: (?, 40, 33, 33, 33)
+2020-6-12 20:21:5.61: 	Block [7], Mode: [infer], Input's Shape: (?, 50, 31, 31, 31)
+2020-6-12 20:21:5.63: 	Residual-Connection made between: output of [Block_7] & input of previous block.
+2020-6-12 20:21:5.69: Pathway [NORMAL], Mode: [infer], Output's Shape: (?, 50, 29, 29, 29)
+2020-6-12 20:21:5.70: Pathway [SUBSAMPLED[3, 3, 3]], Mode: [infer], Input's Shape: (?, 1, 26, 26, 26)
+2020-6-12 20:21:5.70: 	Block [0], Mode: [infer], Input's Shape: (?, 1, 26, 26, 26)
+2020-6-12 20:21:5.70: 	Block [1], Mode: [infer], Input's Shape: (?, 30, 24, 24, 24)
+2020-6-12 20:21:5.72: 	Block [2], Mode: [infer], Input's Shape: (?, 30, 22, 22, 22)
+2020-6-12 20:21:5.74: 	Block [3], Mode: [infer], Input's Shape: (?, 40, 20, 20, 20)
+2020-6-12 20:21:5.76: 	Residual-Connection made between: output of [Block_3] & input of previous block.
+2020-6-12 20:21:5.84: 	Block [4], Mode: [infer], Input's Shape: (?, 40, 18, 18, 18)
+2020-6-12 20:21:5.86: 	Block [5], Mode: [infer], Input's Shape: (?, 40, 16, 16, 16)
+2020-6-12 20:21:5.88: 	Residual-Connection made between: output of [Block_5] & input of previous block.
+2020-6-12 20:21:5.95: 	Block [6], Mode: [infer], Input's Shape: (?, 40, 14, 14, 14)
+2020-6-12 20:21:5.97: 	Block [7], Mode: [infer], Input's Shape: (?, 50, 12, 12, 12)
+2020-6-12 20:21:5.99: 	Residual-Connection made between: output of [Block_7] & input of previous block.
+2020-6-12 20:21:6.06: Pathway [SUBSAMPLED[3, 3, 3]], Mode: [infer], Output's Shape: (?, 50, 10, 10, 10)
+2020-6-12 20:21:6.16: Pathway [SUBSAMPLED[5, 5, 5]], Mode: [infer], Input's Shape: (?, 1, 22, 22, 22)
+2020-6-12 20:21:6.16: 	Block [0], Mode: [infer], Input's Shape: (?, 1, 22, 22, 22)
+2020-6-12 20:21:6.17: 	Block [1], Mode: [infer], Input's Shape: (?, 30, 20, 20, 20)
+2020-6-12 20:21:6.19: 	Block [2], Mode: [infer], Input's Shape: (?, 30, 18, 18, 18)
+2020-6-12 20:21:6.21: 	Block [3], Mode: [infer], Input's Shape: (?, 40, 16, 16, 16)
+2020-6-12 20:21:6.23: 	Residual-Connection made between: output of [Block_3] & input of previous block.
+2020-6-12 20:21:6.30: 	Block [4], Mode: [infer], Input's Shape: (?, 40, 14, 14, 14)
+2020-6-12 20:21:6.32: 	Block [5], Mode: [infer], Input's Shape: (?, 40, 12, 12, 12)
+2020-6-12 20:21:6.34: 	Residual-Connection made between: output of [Block_5] & input of previous block.
+2020-6-12 20:21:6.42: 	Block [6], Mode: [infer], Input's Shape: (?, 40, 10, 10, 10)
+2020-6-12 20:21:6.45: 	Block [7], Mode: [infer], Input's Shape: (?, 50, 8, 8, 8)
+2020-6-12 20:21:6.47: 	Residual-Connection made between: output of [Block_7] & input of previous block.
+2020-6-12 20:21:6.56: Pathway [SUBSAMPLED[5, 5, 5]], Mode: [infer], Output's Shape: (?, 50, 6, 6, 6)
+2020-6-12 20:21:6.67: Pathway [FC], Mode: [infer], Input's Shape: (?, 150, 29, 29, 29)
+2020-6-12 20:21:6.67: 	Block [0], Mode: [infer], Input's Shape: (?, 150, 29, 29, 29)
+2020-6-12 20:21:6.72: 	Block [1], Mode: [infer], Input's Shape: (?, 250, 29, 29, 29)
+2020-6-12 20:21:6.75: 	Residual-Connection made between: output of [Block_1] & input of previous block.
+2020-6-12 20:21:6.90: 	Block [2], Mode: [infer], Input's Shape: (?, 250, 29, 29, 29)
+2020-6-12 20:21:6.92: Pathway [FC], Mode: [infer], Output's Shape: (?, 10, 29, 29, 29)
+2020-6-12 20:21:6.94: =========== Compiling the Testing Function ============
+2020-6-12 20:21:6.94: =======================================================
+
+2020-6-12 20:21:6.94: ...Building the function for testing and visualisation of FMs...
+2020-6-12 20:21:6.94: ...Collecting ops and feeds for testing...
+2020-6-12 20:21:6.95: Done.
+2020-6-12 20:21:7.16: =========== Loading parameters from specified saved model ===============
+2020-6-12 20:21:7.16: Loading parameters from:/vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/saved_models/dHCPTrainingSession3/dHCPmodel1.dHCPTrainingSession3.final.2020-06-10.14.06.59.988103.model.ckpt
+2020-6-12 20:21:22.68: Parameters were loaded.
+2020-6-12 20:21:22.68: 
+2020-6-12 20:21:22.68: ======================================================
+2020-6-12 20:21:22.68: =========== Testing with the CNN model ===============
+2020-6-12 20:21:22.68: ======================================================
+2020-6-12 20:21:22.68: 
+2020-6-12 20:21:22.68: ##########################################################################################
+2020-6-12 20:21:22.68: #		  Starting full Segmentation of Testing subjects   			#
+2020-6-12 20:21:22.68: ##########################################################################################
+2020-6-12 20:21:22.68: 
+2020-6-12 20:21:22.69: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2020-6-12 20:21:22.69: ~~~~~~~~	 Segmenting subject with index #0 	~~~~~~~~
+2020-6-12 20:21:22.69:  Loading subject with 1st channel at: /vol/bitbucket/sc5316/dHCP/t2normgaus4/sub-CC00687XX20_ses-199000_T2w.nii.gz
+2020-6-12 20:21:24.53:  WARN: Loaded labels are dtype [float64]. Rounding and casting to [int16]!
+2020-6-12 20:21:36.70: Starting to (tile) extract Segments from the images of the subject for Segmentation...
+2020-6-12 20:21:36.70: Finished (tiling) extracting Segments from the images of the subject for Segmentation.
+2020-6-12 20:21:36.71: Ready to make predictions for all image segments (parts).
+2020-6-12 20:21:36.71: Total number of Segments to process:700
+2020-6-12 20:21:36.71: Processed 0/700 segments.
+2020-6-12 20:22:0.37: Processed 140/700 segments.
+2020-6-12 20:22:18.84: Processed 280/700 segments.
+2020-6-12 20:22:37.38: Processed 420/700 segments.
+2020-6-12 20:22:55.97: Processed 560/700 segments.
+2020-6-12 20:23:14.27: Processed 700/700 segments.
+2020-6-12 20:23:14.27: TIMING: Segmentation of subject: [Forward Pass:] 94.20 secs.
+2020-6-12 20:23:27.07: Saving the new label (segmentation) image for the subject #0
+2020-6-12 20:23:27.57: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00687XX20_ses-199000_desc-drawem9_space-T2w_dseg_gaus4_Segm.nii.gz
+2020-6-12 20:23:27.57: Saving the new label (segmentation) image for the subject #0
+2020-6-12 20:23:29.35: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00687XX20_ses-199000_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass0.nii.gz
+2020-6-12 20:23:29.35: Saving the new label (segmentation) image for the subject #0
+2020-6-12 20:23:32.61: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00687XX20_ses-199000_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass1.nii.gz
+2020-6-12 20:23:32.61: Saving the new label (segmentation) image for the subject #0
+2020-6-12 20:23:35.72: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00687XX20_ses-199000_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass2.nii.gz
+2020-6-12 20:23:35.72: Saving the new label (segmentation) image for the subject #0
+2020-6-12 20:23:39.02: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00687XX20_ses-199000_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass3.nii.gz
+2020-6-12 20:23:39.02: Saving the new label (segmentation) image for the subject #0
+2020-6-12 20:23:42.34: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00687XX20_ses-199000_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass4.nii.gz
+2020-6-12 20:23:42.34: Saving the new label (segmentation) image for the subject #0
+2020-6-12 20:23:45.41: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00687XX20_ses-199000_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass5.nii.gz
+2020-6-12 20:23:45.41: Saving the new label (segmentation) image for the subject #0
+2020-6-12 20:23:48.43: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00687XX20_ses-199000_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass6.nii.gz
+2020-6-12 20:23:48.43: Saving the new label (segmentation) image for the subject #0
+2020-6-12 20:23:51.46: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00687XX20_ses-199000_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass7.nii.gz
+2020-6-12 20:23:51.46: Saving the new label (segmentation) image for the subject #0
+2020-6-12 20:23:54.42: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00687XX20_ses-199000_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass8.nii.gz
+2020-6-12 20:23:54.42: Saving the new label (segmentation) image for the subject #0
+2020-6-12 20:23:57.62: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00687XX20_ses-199000_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass9.nii.gz
+2020-6-12 20:24:47.35: +++++++++++ Reporting Segmentation Metrics for Subject #0 +++++++++++
+2020-6-12 20:24:47.37: ACCURACY: (Testing) The Per-Class DICE Coefficients for subject with index #0 equal: DICE1=[ 0.9412 0.0192 0.0351 0.5060 0.4372 0.0000 0.3956 0.4623 0.6829 0.0000 ] DICE2=[ 0.9412 0.0192 0.0351 0.5060 0.4372 0.0000 0.3956 0.4623 0.6829 0.0000 ] DICE3=[ 0.9412 0.0192 0.0351 0.5060 0.4372 0.0000 0.3956 0.4623 0.6829 0.0000 ]
+2020-6-12 20:24:47.39: EXPLANATION: DICE1/2/3 are lists with the DICE per class.
+	 For Class-0, we calculate DICE for whole foreground: all labels merged except background, label=0.
+	 Useful for multi-class problems.
+2020-6-12 20:24:47.40: EXPLANATION: DICE1 is calculated as segmentation over whole volume VS whole Ground Truth (GT).
+	 DICE2 is the segmentation within the ROI vs GT.
+	 DICE3 is segmentation within the ROI vs the GT within the ROI.
+2020-6-12 20:24:47.42: EXPLANATION: If an ROI mask has been provided, you should be consulting DICE2 or DICE3.
+2020-6-12 20:24:47.44: 
+2020-6-12 20:24:47.45: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2020-6-12 20:24:47.46: ~~~~~~~~	 Segmenting subject with index #1 	~~~~~~~~
+2020-6-12 20:24:47.46:  Loading subject with 1st channel at: /vol/bitbucket/sc5316/dHCP/t2normgaus4/sub-CC00688XX21_ses-199500_T2w.nii.gz
+2020-6-12 20:24:49.20:  WARN: Loaded labels are dtype [float64]. Rounding and casting to [int16]!
+2020-6-12 20:24:51.99: Starting to (tile) extract Segments from the images of the subject for Segmentation...
+2020-6-12 20:24:51.99: Finished (tiling) extracting Segments from the images of the subject for Segmentation.
+2020-6-12 20:24:51.99: Ready to make predictions for all image segments (parts).
+2020-6-12 20:24:51.99: Total number of Segments to process:700
+2020-6-12 20:24:51.99: Processed 0/700 segments.
+2020-6-12 20:25:10.71: Processed 140/700 segments.
+2020-6-12 20:25:28.97: Processed 280/700 segments.
+2020-6-12 20:25:47.37: Processed 420/700 segments.
+2020-6-12 20:26:5.55: Processed 560/700 segments.
+2020-6-12 20:26:23.85: Processed 700/700 segments.
+2020-6-12 20:26:23.85: TIMING: Segmentation of subject: [Forward Pass:] 89.23 secs.
+2020-6-12 20:26:30.42: Saving the new label (segmentation) image for the subject #1
+2020-6-12 20:26:30.95: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00688XX21_ses-199500_desc-drawem9_space-T2w_dseg_gaus4_Segm.nii.gz
+2020-6-12 20:26:30.95: Saving the new label (segmentation) image for the subject #1
+2020-6-12 20:26:32.70: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00688XX21_ses-199500_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass0.nii.gz
+2020-6-12 20:26:32.70: Saving the new label (segmentation) image for the subject #1
+2020-6-12 20:26:35.77: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00688XX21_ses-199500_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass1.nii.gz
+2020-6-12 20:26:35.78: Saving the new label (segmentation) image for the subject #1
+2020-6-12 20:26:38.86: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00688XX21_ses-199500_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass2.nii.gz
+2020-6-12 20:26:38.87: Saving the new label (segmentation) image for the subject #1
+2020-6-12 20:26:42.12: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00688XX21_ses-199500_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass3.nii.gz
+2020-6-12 20:26:42.12: Saving the new label (segmentation) image for the subject #1
+2020-6-12 20:26:45.25: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00688XX21_ses-199500_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass4.nii.gz
+2020-6-12 20:26:45.26: Saving the new label (segmentation) image for the subject #1
+2020-6-12 20:26:48.21: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00688XX21_ses-199500_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass5.nii.gz
+2020-6-12 20:26:48.21: Saving the new label (segmentation) image for the subject #1
+2020-6-12 20:26:51.21: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00688XX21_ses-199500_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass6.nii.gz
+2020-6-12 20:26:51.21: Saving the new label (segmentation) image for the subject #1
+2020-6-12 20:26:54.35: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00688XX21_ses-199500_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass7.nii.gz
+2020-6-12 20:26:54.35: Saving the new label (segmentation) image for the subject #1
+2020-6-12 20:26:57.40: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00688XX21_ses-199500_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass8.nii.gz
+2020-6-12 20:26:57.40: Saving the new label (segmentation) image for the subject #1
+2020-6-12 20:27:0.72: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00688XX21_ses-199500_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass9.nii.gz
+2020-6-12 20:27:56.60: +++++++++++ Reporting Segmentation Metrics for Subject #1 +++++++++++
+2020-6-12 20:27:56.60: ACCURACY: (Testing) The Per-Class DICE Coefficients for subject with index #1 equal: DICE1=[ 0.9406 0.0366 0.0916 0.5887 0.4534 0.0602 0.4887 0.3882 0.4963 0.0001 ] DICE2=[ 0.9406 0.0366 0.0916 0.5887 0.4534 0.0602 0.4887 0.3882 0.4963 0.0001 ] DICE3=[ 0.9406 0.0366 0.0916 0.5887 0.4534 0.0602 0.4887 0.3882 0.4963 0.0001 ]
+2020-6-12 20:27:56.60: EXPLANATION: DICE1/2/3 are lists with the DICE per class.
+	 For Class-0, we calculate DICE for whole foreground: all labels merged except background, label=0.
+	 Useful for multi-class problems.
+2020-6-12 20:27:56.60: EXPLANATION: DICE1 is calculated as segmentation over whole volume VS whole Ground Truth (GT).
+	 DICE2 is the segmentation within the ROI vs GT.
+	 DICE3 is segmentation within the ROI vs the GT within the ROI.
+2020-6-12 20:27:56.60: EXPLANATION: If an ROI mask has been provided, you should be consulting DICE2 or DICE3.
+2020-6-12 20:27:56.60: 
+2020-6-12 20:27:56.60: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2020-6-12 20:27:56.60: ~~~~~~~~	 Segmenting subject with index #2 	~~~~~~~~
+2020-6-12 20:27:56.61:  Loading subject with 1st channel at: /vol/bitbucket/sc5316/dHCP/t2normgaus4/sub-CC00766XX16_ses-4200_T2w.nii.gz
+2020-6-12 20:27:58.40:  WARN: Loaded labels are dtype [float64]. Rounding and casting to [int16]!
+2020-6-12 20:28:3.07: Starting to (tile) extract Segments from the images of the subject for Segmentation...
+2020-6-12 20:28:3.07: Finished (tiling) extracting Segments from the images of the subject for Segmentation.
+2020-6-12 20:28:3.07: Ready to make predictions for all image segments (parts).
+2020-6-12 20:28:3.07: Total number of Segments to process:700
+2020-6-12 20:28:3.07: Processed 0/700 segments.
+2020-6-12 20:28:21.66: Processed 140/700 segments.
+2020-6-12 20:28:39.95: Processed 280/700 segments.
+2020-6-12 20:28:58.05: Processed 420/700 segments.
+2020-6-12 20:29:16.20: Processed 560/700 segments.
+2020-6-12 20:29:34.49: Processed 700/700 segments.
+2020-6-12 20:29:34.49: TIMING: Segmentation of subject: [Forward Pass:] 89.22 secs.
+2020-6-12 20:29:47.97: Saving the new label (segmentation) image for the subject #2
+2020-6-12 20:29:48.49: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00766XX16_ses-4200_desc-drawem9_space-T2w_dseg_gaus4_Segm.nii.gz
+2020-6-12 20:29:48.49: Saving the new label (segmentation) image for the subject #2
+2020-6-12 20:29:50.75: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00766XX16_ses-4200_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass0.nii.gz
+2020-6-12 20:29:50.75: Saving the new label (segmentation) image for the subject #2
+2020-6-12 20:29:54.16: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00766XX16_ses-4200_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass1.nii.gz
+2020-6-12 20:29:54.16: Saving the new label (segmentation) image for the subject #2
+2020-6-12 20:29:57.77: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00766XX16_ses-4200_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass2.nii.gz
+2020-6-12 20:29:57.77: Saving the new label (segmentation) image for the subject #2
+2020-6-12 20:30:1.44: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00766XX16_ses-4200_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass3.nii.gz
+2020-6-12 20:30:1.44: Saving the new label (segmentation) image for the subject #2
+2020-6-12 20:30:4.92: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00766XX16_ses-4200_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass4.nii.gz
+2020-6-12 20:30:4.92: Saving the new label (segmentation) image for the subject #2
+2020-6-12 20:30:8.40: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00766XX16_ses-4200_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass5.nii.gz
+2020-6-12 20:30:8.40: Saving the new label (segmentation) image for the subject #2
+2020-6-12 20:30:12.24: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00766XX16_ses-4200_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass6.nii.gz
+2020-6-12 20:30:12.24: Saving the new label (segmentation) image for the subject #2
+2020-6-12 20:30:15.94: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00766XX16_ses-4200_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass7.nii.gz
+2020-6-12 20:30:15.94: Saving the new label (segmentation) image for the subject #2
+2020-6-12 20:30:19.30: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00766XX16_ses-4200_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass8.nii.gz
+2020-6-12 20:30:19.30: Saving the new label (segmentation) image for the subject #2
+2020-6-12 20:30:23.07: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00766XX16_ses-4200_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass9.nii.gz
+2020-6-12 20:31:11.59: +++++++++++ Reporting Segmentation Metrics for Subject #2 +++++++++++
+2020-6-12 20:31:11.60: ACCURACY: (Testing) The Per-Class DICE Coefficients for subject with index #2 equal: DICE1=[ 0.9492 0.0584 0.0416 0.4660 0.4384 0.0000 0.3316 0.4997 0.6293 0.0053 ] DICE2=[ 0.9492 0.0584 0.0416 0.4660 0.4384 0.0000 0.3316 0.4997 0.6293 0.0053 ] DICE3=[ 0.9492 0.0584 0.0416 0.4660 0.4384 0.0000 0.3316 0.4997 0.6293 0.0053 ]
+2020-6-12 20:31:11.60: EXPLANATION: DICE1/2/3 are lists with the DICE per class.
+	 For Class-0, we calculate DICE for whole foreground: all labels merged except background, label=0.
+	 Useful for multi-class problems.
+2020-6-12 20:31:11.60: EXPLANATION: DICE1 is calculated as segmentation over whole volume VS whole Ground Truth (GT).
+	 DICE2 is the segmentation within the ROI vs GT.
+	 DICE3 is segmentation within the ROI vs the GT within the ROI.
+2020-6-12 20:31:11.60: EXPLANATION: If an ROI mask has been provided, you should be consulting DICE2 or DICE3.
+2020-6-12 20:31:11.60: 
+2020-6-12 20:31:11.60: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2020-6-12 20:31:11.60: ~~~~~~~~	 Segmenting subject with index #3 	~~~~~~~~
+2020-6-12 20:31:11.60:  Loading subject with 1st channel at: /vol/bitbucket/sc5316/dHCP/t2normgaus4/sub-CC00768XX18_ses-236400_T2w.nii.gz
+2020-6-12 20:31:13.49:  WARN: Loaded labels are dtype [float64]. Rounding and casting to [int16]!
+2020-6-12 20:31:15.92: Starting to (tile) extract Segments from the images of the subject for Segmentation...
+2020-6-12 20:31:15.92: Finished (tiling) extracting Segments from the images of the subject for Segmentation.
+2020-6-12 20:31:15.92: Ready to make predictions for all image segments (parts).
+2020-6-12 20:31:15.92: Total number of Segments to process:700
+2020-6-12 20:31:15.92: Processed 0/700 segments.
+2020-6-12 20:31:34.58: Processed 140/700 segments.
+2020-6-12 20:31:52.73: Processed 280/700 segments.
+2020-6-12 20:32:11.05: Processed 420/700 segments.
+2020-6-12 20:32:29.25: Processed 560/700 segments.
+2020-6-12 20:32:47.44: Processed 700/700 segments.
+2020-6-12 20:32:47.44: TIMING: Segmentation of subject: [Forward Pass:] 89.54 secs.
+2020-6-12 20:32:58.48: Saving the new label (segmentation) image for the subject #3
+2020-6-12 20:32:58.98: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00768XX18_ses-236400_desc-drawem9_space-T2w_dseg_gaus4_Segm.nii.gz
+2020-6-12 20:32:58.98: Saving the new label (segmentation) image for the subject #3
+2020-6-12 20:33:1.17: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00768XX18_ses-236400_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass0.nii.gz
+2020-6-12 20:33:1.17: Saving the new label (segmentation) image for the subject #3
+2020-6-12 20:33:4.57: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00768XX18_ses-236400_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass1.nii.gz
+2020-6-12 20:33:4.57: Saving the new label (segmentation) image for the subject #3
+2020-6-12 20:33:8.02: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00768XX18_ses-236400_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass2.nii.gz
+2020-6-12 20:33:8.02: Saving the new label (segmentation) image for the subject #3
+2020-6-12 20:33:11.53: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00768XX18_ses-236400_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass3.nii.gz
+2020-6-12 20:33:11.53: Saving the new label (segmentation) image for the subject #3
+2020-6-12 20:33:14.83: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00768XX18_ses-236400_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass4.nii.gz
+2020-6-12 20:33:14.83: Saving the new label (segmentation) image for the subject #3
+2020-6-12 20:33:18.34: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00768XX18_ses-236400_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass5.nii.gz
+2020-6-12 20:33:18.34: Saving the new label (segmentation) image for the subject #3
+2020-6-12 20:33:21.88: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00768XX18_ses-236400_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass6.nii.gz
+2020-6-12 20:33:21.88: Saving the new label (segmentation) image for the subject #3
+2020-6-12 20:33:25.24: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00768XX18_ses-236400_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass7.nii.gz
+2020-6-12 20:33:25.24: Saving the new label (segmentation) image for the subject #3
+2020-6-12 20:33:28.63: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00768XX18_ses-236400_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass8.nii.gz
+2020-6-12 20:33:28.64: Saving the new label (segmentation) image for the subject #3
+2020-6-12 20:33:32.31: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00768XX18_ses-236400_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass9.nii.gz
+2020-6-12 20:35:5.31: +++++++++++ Reporting Segmentation Metrics for Subject #3 +++++++++++
+2020-6-12 20:35:5.32: ACCURACY: (Testing) The Per-Class DICE Coefficients for subject with index #3 equal: DICE1=[ 0.9432 0.0124 0.0454 0.4209 0.4503 0.0158 0.2614 0.4381 0.5504 0.0001 ] DICE2=[ 0.9432 0.0124 0.0454 0.4209 0.4503 0.0158 0.2614 0.4381 0.5504 0.0001 ] DICE3=[ 0.9432 0.0124 0.0454 0.4209 0.4503 0.0158 0.2614 0.4381 0.5504 0.0001 ]
+2020-6-12 20:35:5.32: EXPLANATION: DICE1/2/3 are lists with the DICE per class.
+	 For Class-0, we calculate DICE for whole foreground: all labels merged except background, label=0.
+	 Useful for multi-class problems.
+2020-6-12 20:35:5.32: EXPLANATION: DICE1 is calculated as segmentation over whole volume VS whole Ground Truth (GT).
+	 DICE2 is the segmentation within the ROI vs GT.
+	 DICE3 is segmentation within the ROI vs the GT within the ROI.
+2020-6-12 20:35:5.32: EXPLANATION: If an ROI mask has been provided, you should be consulting DICE2 or DICE3.
+2020-6-12 20:35:5.32: 
+2020-6-12 20:35:5.32: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2020-6-12 20:35:5.32: ~~~~~~~~	 Segmenting subject with index #4 	~~~~~~~~
+2020-6-12 20:35:5.32:  Loading subject with 1st channel at: /vol/bitbucket/sc5316/dHCP/t2normgaus4/sub-CC00770XX12_ses-1100_T2w.nii.gz
+2020-6-12 20:35:7.08:  WARN: Loaded labels are dtype [float64]. Rounding and casting to [int16]!
+2020-6-12 20:35:13.66: Starting to (tile) extract Segments from the images of the subject for Segmentation...
+2020-6-12 20:35:13.66: Finished (tiling) extracting Segments from the images of the subject for Segmentation.
+2020-6-12 20:35:13.66: Ready to make predictions for all image segments (parts).
+2020-6-12 20:35:13.66: Total number of Segments to process:700
+2020-6-12 20:35:13.66: Processed 0/700 segments.
+2020-6-12 20:35:32.29: Processed 140/700 segments.
+2020-6-12 20:35:50.45: Processed 280/700 segments.
+2020-6-12 20:36:8.72: Processed 420/700 segments.
+2020-6-12 20:36:26.97: Processed 560/700 segments.
+2020-6-12 20:36:45.09: Processed 700/700 segments.
+2020-6-12 20:36:45.09: TIMING: Segmentation of subject: [Forward Pass:] 89.33 secs.
+2020-6-12 20:36:51.83: Saving the new label (segmentation) image for the subject #4
+2020-6-12 20:36:52.39: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00770XX12_ses-1100_desc-drawem9_space-T2w_dseg_gaus4_Segm.nii.gz
+2020-6-12 20:36:52.39: Saving the new label (segmentation) image for the subject #4
+2020-6-12 20:36:54.53: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00770XX12_ses-1100_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass0.nii.gz
+2020-6-12 20:36:54.54: Saving the new label (segmentation) image for the subject #4
+2020-6-12 20:36:57.73: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00770XX12_ses-1100_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass1.nii.gz
+2020-6-12 20:36:57.73: Saving the new label (segmentation) image for the subject #4
+2020-6-12 20:37:0.94: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00770XX12_ses-1100_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass2.nii.gz
+2020-6-12 20:37:0.94: Saving the new label (segmentation) image for the subject #4
+2020-6-12 20:37:4.64: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00770XX12_ses-1100_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass3.nii.gz
+2020-6-12 20:37:4.64: Saving the new label (segmentation) image for the subject #4
+2020-6-12 20:37:7.94: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00770XX12_ses-1100_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass4.nii.gz
+2020-6-12 20:37:7.95: Saving the new label (segmentation) image for the subject #4
+2020-6-12 20:37:11.22: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00770XX12_ses-1100_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass5.nii.gz
+2020-6-12 20:37:11.23: Saving the new label (segmentation) image for the subject #4
+2020-6-12 20:37:14.30: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00770XX12_ses-1100_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass6.nii.gz
+2020-6-12 20:37:14.30: Saving the new label (segmentation) image for the subject #4
+2020-6-12 20:37:17.31: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00770XX12_ses-1100_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass7.nii.gz
+2020-6-12 20:37:17.31: Saving the new label (segmentation) image for the subject #4
+2020-6-12 20:37:20.63: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00770XX12_ses-1100_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass8.nii.gz
+2020-6-12 20:37:20.63: Saving the new label (segmentation) image for the subject #4
+2020-6-12 20:37:24.23: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00770XX12_ses-1100_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass9.nii.gz
+2020-6-12 20:38:11.51: +++++++++++ Reporting Segmentation Metrics for Subject #4 +++++++++++
+2020-6-12 20:38:11.51: ACCURACY: (Testing) The Per-Class DICE Coefficients for subject with index #4 equal: DICE1=[ 0.9335 0.0109 0.0425 0.4356 0.4675 0.0002 0.3162 0.3059 0.3442 0.0000 ] DICE2=[ 0.9335 0.0109 0.0425 0.4356 0.4675 0.0002 0.3162 0.3059 0.3442 0.0000 ] DICE3=[ 0.9335 0.0109 0.0425 0.4356 0.4675 0.0002 0.3162 0.3059 0.3442 0.0000 ]
+2020-6-12 20:38:11.51: EXPLANATION: DICE1/2/3 are lists with the DICE per class.
+	 For Class-0, we calculate DICE for whole foreground: all labels merged except background, label=0.
+	 Useful for multi-class problems.
+2020-6-12 20:38:11.51: EXPLANATION: DICE1 is calculated as segmentation over whole volume VS whole Ground Truth (GT).
+	 DICE2 is the segmentation within the ROI vs GT.
+	 DICE3 is segmentation within the ROI vs the GT within the ROI.
+2020-6-12 20:38:11.51: EXPLANATION: If an ROI mask has been provided, you should be consulting DICE2 or DICE3.
+2020-6-12 20:38:11.51: 
+2020-6-12 20:38:11.51: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2020-6-12 20:38:11.51: ~~~~~~~~	 Segmenting subject with index #5 	~~~~~~~~
+2020-6-12 20:38:11.51:  Loading subject with 1st channel at: /vol/bitbucket/sc5316/dHCP/t2normgaus4/sub-CC00770XX12_ses-238000_T2w.nii.gz
+2020-6-12 20:38:13.24:  WARN: Loaded labels are dtype [float64]. Rounding and casting to [int16]!
+2020-6-12 20:38:17.53: Starting to (tile) extract Segments from the images of the subject for Segmentation...
+2020-6-12 20:38:17.53: Finished (tiling) extracting Segments from the images of the subject for Segmentation.
+2020-6-12 20:38:17.53: Ready to make predictions for all image segments (parts).
+2020-6-12 20:38:17.53: Total number of Segments to process:700
+2020-6-12 20:38:17.53: Processed 0/700 segments.
+2020-6-12 20:38:36.13: Processed 140/700 segments.
+2020-6-12 20:38:54.27: Processed 280/700 segments.
+2020-6-12 20:39:12.40: Processed 420/700 segments.
+2020-6-12 20:39:30.54: Processed 560/700 segments.
+2020-6-12 20:39:48.60: Processed 700/700 segments.
+2020-6-12 20:39:48.60: TIMING: Segmentation of subject: [Forward Pass:] 89.23 secs.
+2020-6-12 20:39:55.16: Saving the new label (segmentation) image for the subject #5
+2020-6-12 20:39:55.68: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00770XX12_ses-238000_desc-drawem9_space-T2w_dseg_gaus4_Segm.nii.gz
+2020-6-12 20:39:55.68: Saving the new label (segmentation) image for the subject #5
+2020-6-12 20:39:57.23: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00770XX12_ses-238000_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass0.nii.gz
+2020-6-12 20:39:57.23: Saving the new label (segmentation) image for the subject #5
+2020-6-12 20:40:0.07: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00770XX12_ses-238000_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass1.nii.gz
+2020-6-12 20:40:0.07: Saving the new label (segmentation) image for the subject #5
+2020-6-12 20:40:2.99: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00770XX12_ses-238000_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass2.nii.gz
+2020-6-12 20:40:2.99: Saving the new label (segmentation) image for the subject #5
+2020-6-12 20:40:5.94: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00770XX12_ses-238000_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass3.nii.gz
+2020-6-12 20:40:5.95: Saving the new label (segmentation) image for the subject #5
+2020-6-12 20:40:8.88: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00770XX12_ses-238000_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass4.nii.gz
+2020-6-12 20:40:8.88: Saving the new label (segmentation) image for the subject #5
+2020-6-12 20:40:11.64: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00770XX12_ses-238000_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass5.nii.gz
+2020-6-12 20:40:11.64: Saving the new label (segmentation) image for the subject #5
+2020-6-12 20:40:14.39: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00770XX12_ses-238000_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass6.nii.gz
+2020-6-12 20:40:14.39: Saving the new label (segmentation) image for the subject #5
+2020-6-12 20:40:17.17: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00770XX12_ses-238000_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass7.nii.gz
+2020-6-12 20:40:17.17: Saving the new label (segmentation) image for the subject #5
+2020-6-12 20:40:20.04: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00770XX12_ses-238000_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass8.nii.gz
+2020-6-12 20:40:20.04: Saving the new label (segmentation) image for the subject #5
+2020-6-12 20:40:23.01: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00770XX12_ses-238000_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass9.nii.gz
+2020-6-12 20:41:19.39: +++++++++++ Reporting Segmentation Metrics for Subject #5 +++++++++++
+2020-6-12 20:41:19.39: ACCURACY: (Testing) The Per-Class DICE Coefficients for subject with index #5 equal: DICE1=[ 0.9136 0.0321 0.0490 0.4602 0.3494 0.0180 0.4997 0.3047 0.1178 0.0000 ] DICE2=[ 0.9136 0.0321 0.0490 0.4602 0.3494 0.0180 0.4997 0.3047 0.1178 0.0000 ] DICE3=[ 0.9136 0.0321 0.0490 0.4602 0.3494 0.0180 0.4997 0.3047 0.1178 0.0000 ]
+2020-6-12 20:41:19.39: EXPLANATION: DICE1/2/3 are lists with the DICE per class.
+	 For Class-0, we calculate DICE for whole foreground: all labels merged except background, label=0.
+	 Useful for multi-class problems.
+2020-6-12 20:41:19.39: EXPLANATION: DICE1 is calculated as segmentation over whole volume VS whole Ground Truth (GT).
+	 DICE2 is the segmentation within the ROI vs GT.
+	 DICE3 is segmentation within the ROI vs the GT within the ROI.
+2020-6-12 20:41:19.39: EXPLANATION: If an ROI mask has been provided, you should be consulting DICE2 or DICE3.
+2020-6-12 20:41:19.39: 
+2020-6-12 20:41:19.39: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2020-6-12 20:41:19.39: ~~~~~~~~	 Segmenting subject with index #6 	~~~~~~~~
+2020-6-12 20:41:19.40:  Loading subject with 1st channel at: /vol/bitbucket/sc5316/dHCP/t2normgaus4/sub-CC00771XX13_ses-17710_T2w.nii.gz
+2020-6-12 20:41:21.28:  WARN: Loaded labels are dtype [float64]. Rounding and casting to [int16]!
+2020-6-12 20:41:25.16: Starting to (tile) extract Segments from the images of the subject for Segmentation...
+2020-6-12 20:41:25.16: Finished (tiling) extracting Segments from the images of the subject for Segmentation.
+2020-6-12 20:41:25.16: Ready to make predictions for all image segments (parts).
+2020-6-12 20:41:25.16: Total number of Segments to process:700
+2020-6-12 20:41:25.16: Processed 0/700 segments.
+2020-6-12 20:41:43.75: Processed 140/700 segments.
+2020-6-12 20:42:1.94: Processed 280/700 segments.
+2020-6-12 20:42:20.27: Processed 420/700 segments.
+2020-6-12 20:42:38.40: Processed 560/700 segments.
+2020-6-12 20:42:56.58: Processed 700/700 segments.
+2020-6-12 20:42:56.58: TIMING: Segmentation of subject: [Forward Pass:] 89.36 secs.
+2020-6-12 20:43:9.77: Saving the new label (segmentation) image for the subject #6
+2020-6-12 20:43:10.37: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00771XX13_ses-17710_desc-drawem9_space-T2w_dseg_gaus4_Segm.nii.gz
+2020-6-12 20:43:10.37: Saving the new label (segmentation) image for the subject #6
+2020-6-12 20:43:12.72: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00771XX13_ses-17710_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass0.nii.gz
+2020-6-12 20:43:12.72: Saving the new label (segmentation) image for the subject #6
+2020-6-12 20:43:16.08: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00771XX13_ses-17710_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass1.nii.gz
+2020-6-12 20:43:16.08: Saving the new label (segmentation) image for the subject #6
+2020-6-12 20:43:19.40: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00771XX13_ses-17710_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass2.nii.gz
+2020-6-12 20:43:19.40: Saving the new label (segmentation) image for the subject #6
+2020-6-12 20:43:23.06: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00771XX13_ses-17710_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass3.nii.gz
+2020-6-12 20:43:23.06: Saving the new label (segmentation) image for the subject #6
+2020-6-12 20:43:26.78: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00771XX13_ses-17710_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass4.nii.gz
+2020-6-12 20:43:26.78: Saving the new label (segmentation) image for the subject #6
+2020-6-12 20:43:30.38: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00771XX13_ses-17710_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass5.nii.gz
+2020-6-12 20:43:30.38: Saving the new label (segmentation) image for the subject #6
+2020-6-12 20:43:33.87: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00771XX13_ses-17710_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass6.nii.gz
+2020-6-12 20:43:33.87: Saving the new label (segmentation) image for the subject #6
+2020-6-12 20:43:37.47: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00771XX13_ses-17710_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass7.nii.gz
+2020-6-12 20:43:37.47: Saving the new label (segmentation) image for the subject #6
+2020-6-12 20:43:40.96: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00771XX13_ses-17710_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass8.nii.gz
+2020-6-12 20:43:40.96: Saving the new label (segmentation) image for the subject #6
+2020-6-12 20:43:44.34: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00771XX13_ses-17710_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass9.nii.gz
+2020-6-12 20:44:36.46: +++++++++++ Reporting Segmentation Metrics for Subject #6 +++++++++++
+2020-6-12 20:44:36.46: ACCURACY: (Testing) The Per-Class DICE Coefficients for subject with index #6 equal: DICE1=[ 0.9466 0.0014 0.0776 0.6021 0.4644 0.0073 0.3976 0.4263 0.2181 0.0000 ] DICE2=[ 0.9466 0.0014 0.0776 0.6021 0.4644 0.0073 0.3976 0.4263 0.2181 0.0000 ] DICE3=[ 0.9466 0.0014 0.0776 0.6021 0.4644 0.0073 0.3976 0.4263 0.2181 0.0000 ]
+2020-6-12 20:44:36.46: EXPLANATION: DICE1/2/3 are lists with the DICE per class.
+	 For Class-0, we calculate DICE for whole foreground: all labels merged except background, label=0.
+	 Useful for multi-class problems.
+2020-6-12 20:44:36.46: EXPLANATION: DICE1 is calculated as segmentation over whole volume VS whole Ground Truth (GT).
+	 DICE2 is the segmentation within the ROI vs GT.
+	 DICE3 is segmentation within the ROI vs the GT within the ROI.
+2020-6-12 20:44:36.46: EXPLANATION: If an ROI mask has been provided, you should be consulting DICE2 or DICE3.
+2020-6-12 20:44:36.46: 
+2020-6-12 20:44:36.46: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2020-6-12 20:44:36.46: ~~~~~~~~	 Segmenting subject with index #7 	~~~~~~~~
+2020-6-12 20:44:36.46:  Loading subject with 1st channel at: /vol/bitbucket/sc5316/dHCP/t2normgaus4/sub-CC00777XX19_ses-239102_T2w.nii.gz
+2020-6-12 20:44:38.25:  WARN: Loaded labels are dtype [float64]. Rounding and casting to [int16]!
+2020-6-12 20:44:41.06: Starting to (tile) extract Segments from the images of the subject for Segmentation...
+2020-6-12 20:44:41.06: Finished (tiling) extracting Segments from the images of the subject for Segmentation.
+2020-6-12 20:44:41.06: Ready to make predictions for all image segments (parts).
+2020-6-12 20:44:41.06: Total number of Segments to process:700
+2020-6-12 20:44:41.06: Processed 0/700 segments.
+2020-6-12 20:44:59.69: Processed 140/700 segments.
+2020-6-12 20:45:17.95: Processed 280/700 segments.
+2020-6-12 20:45:36.10: Processed 420/700 segments.
+2020-6-12 20:45:54.29: Processed 560/700 segments.
+2020-6-12 20:46:12.43: Processed 700/700 segments.
+2020-6-12 20:46:12.43: TIMING: Segmentation of subject: [Forward Pass:] 89.42 secs.
+2020-6-12 20:46:30.54: Saving the new label (segmentation) image for the subject #7
+2020-6-12 20:46:31.16: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00777XX19_ses-239102_desc-drawem9_space-T2w_dseg_gaus4_Segm.nii.gz
+2020-6-12 20:46:31.17: Saving the new label (segmentation) image for the subject #7
+2020-6-12 20:46:33.39: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00777XX19_ses-239102_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass0.nii.gz
+2020-6-12 20:46:33.39: Saving the new label (segmentation) image for the subject #7
+2020-6-12 20:46:36.67: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00777XX19_ses-239102_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass1.nii.gz
+2020-6-12 20:46:36.67: Saving the new label (segmentation) image for the subject #7
+2020-6-12 20:46:39.99: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00777XX19_ses-239102_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass2.nii.gz
+2020-6-12 20:46:40.00: Saving the new label (segmentation) image for the subject #7
+2020-6-12 20:46:43.30: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00777XX19_ses-239102_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass3.nii.gz
+2020-6-12 20:46:43.30: Saving the new label (segmentation) image for the subject #7
+2020-6-12 20:46:46.51: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00777XX19_ses-239102_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass4.nii.gz
+2020-6-12 20:46:46.51: Saving the new label (segmentation) image for the subject #7
+2020-6-12 20:46:50.74: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00777XX19_ses-239102_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass5.nii.gz
+2020-6-12 20:46:50.74: Saving the new label (segmentation) image for the subject #7
+2020-6-12 20:46:54.09: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00777XX19_ses-239102_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass6.nii.gz
+2020-6-12 20:46:54.09: Saving the new label (segmentation) image for the subject #7
+2020-6-12 20:46:57.50: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00777XX19_ses-239102_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass7.nii.gz
+2020-6-12 20:46:57.50: Saving the new label (segmentation) image for the subject #7
+2020-6-12 20:47:0.74: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00777XX19_ses-239102_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass8.nii.gz
+2020-6-12 20:47:0.74: Saving the new label (segmentation) image for the subject #7
+2020-6-12 20:47:4.22: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00777XX19_ses-239102_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass9.nii.gz
+2020-6-12 20:48:39.11: +++++++++++ Reporting Segmentation Metrics for Subject #7 +++++++++++
+2020-6-12 20:48:39.11: ACCURACY: (Testing) The Per-Class DICE Coefficients for subject with index #7 equal: DICE1=[ 0.9504 0.0265 0.0461 0.5001 0.4526 0.0000 0.2784 0.4876 0.4046 0.0000 ] DICE2=[ 0.9504 0.0265 0.0461 0.5001 0.4526 0.0000 0.2784 0.4876 0.4046 0.0000 ] DICE3=[ 0.9504 0.0265 0.0461 0.5001 0.4526 0.0000 0.2784 0.4876 0.4046 0.0000 ]
+2020-6-12 20:48:39.11: EXPLANATION: DICE1/2/3 are lists with the DICE per class.
+	 For Class-0, we calculate DICE for whole foreground: all labels merged except background, label=0.
+	 Useful for multi-class problems.
+2020-6-12 20:48:39.11: EXPLANATION: DICE1 is calculated as segmentation over whole volume VS whole Ground Truth (GT).
+	 DICE2 is the segmentation within the ROI vs GT.
+	 DICE3 is segmentation within the ROI vs the GT within the ROI.
+2020-6-12 20:48:39.11: EXPLANATION: If an ROI mask has been provided, you should be consulting DICE2 or DICE3.
+2020-6-12 20:48:39.11: 
+2020-6-12 20:48:39.11: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2020-6-12 20:48:39.11: ~~~~~~~~	 Segmenting subject with index #8 	~~~~~~~~
+2020-6-12 20:48:39.11:  Loading subject with 1st channel at: /vol/bitbucket/sc5316/dHCP/t2normgaus4/sub-CC00785XX19_ses-240700_T2w.nii.gz
+2020-6-12 20:48:41.05:  WARN: Loaded labels are dtype [float64]. Rounding and casting to [int16]!
+2020-6-12 20:48:49.76: Starting to (tile) extract Segments from the images of the subject for Segmentation...
+2020-6-12 20:48:49.76: Finished (tiling) extracting Segments from the images of the subject for Segmentation.
+2020-6-12 20:48:49.76: Ready to make predictions for all image segments (parts).
+2020-6-12 20:48:49.76: Total number of Segments to process:700
+2020-6-12 20:48:49.76: Processed 0/700 segments.
+2020-6-12 20:49:8.52: Processed 140/700 segments.
+2020-6-12 20:49:26.77: Processed 280/700 segments.
+2020-6-12 20:49:44.86: Processed 420/700 segments.
+2020-6-12 20:50:3.02: Processed 560/700 segments.
+2020-6-12 20:50:21.18: Processed 700/700 segments.
+2020-6-12 20:50:21.18: TIMING: Segmentation of subject: [Forward Pass:] 89.36 secs.
+2020-6-12 20:50:30.22: Saving the new label (segmentation) image for the subject #8
+2020-6-12 20:50:30.75: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00785XX19_ses-240700_desc-drawem9_space-T2w_dseg_gaus4_Segm.nii.gz
+2020-6-12 20:50:30.75: Saving the new label (segmentation) image for the subject #8
+2020-6-12 20:50:32.83: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00785XX19_ses-240700_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass0.nii.gz
+2020-6-12 20:50:32.83: Saving the new label (segmentation) image for the subject #8
+2020-6-12 20:50:36.24: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00785XX19_ses-240700_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass1.nii.gz
+2020-6-12 20:50:36.24: Saving the new label (segmentation) image for the subject #8
+2020-6-12 20:50:39.49: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00785XX19_ses-240700_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass2.nii.gz
+2020-6-12 20:50:39.50: Saving the new label (segmentation) image for the subject #8
+2020-6-12 20:50:42.94: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00785XX19_ses-240700_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass3.nii.gz
+2020-6-12 20:50:42.94: Saving the new label (segmentation) image for the subject #8
+2020-6-12 20:50:46.36: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00785XX19_ses-240700_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass4.nii.gz
+2020-6-12 20:50:46.36: Saving the new label (segmentation) image for the subject #8
+2020-6-12 20:50:49.69: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00785XX19_ses-240700_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass5.nii.gz
+2020-6-12 20:50:49.69: Saving the new label (segmentation) image for the subject #8
+2020-6-12 20:50:53.03: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00785XX19_ses-240700_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass6.nii.gz
+2020-6-12 20:50:53.03: Saving the new label (segmentation) image for the subject #8
+2020-6-12 20:50:56.23: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00785XX19_ses-240700_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass7.nii.gz
+2020-6-12 20:50:56.23: Saving the new label (segmentation) image for the subject #8
+2020-6-12 20:50:59.41: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00785XX19_ses-240700_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass8.nii.gz
+2020-6-12 20:50:59.41: Saving the new label (segmentation) image for the subject #8
+2020-6-12 20:51:2.90: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00785XX19_ses-240700_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass9.nii.gz
+2020-6-12 20:52:7.59: +++++++++++ Reporting Segmentation Metrics for Subject #8 +++++++++++
+2020-6-12 20:52:7.59: ACCURACY: (Testing) The Per-Class DICE Coefficients for subject with index #8 equal: DICE1=[ 0.9360 0.0043 0.0215 0.2831 0.4705 0.0201 0.2849 0.2663 0.3706 0.0004 ] DICE2=[ 0.9360 0.0043 0.0215 0.2831 0.4705 0.0201 0.2849 0.2663 0.3706 0.0004 ] DICE3=[ 0.9360 0.0043 0.0215 0.2831 0.4705 0.0201 0.2849 0.2663 0.3706 0.0004 ]
+2020-6-12 20:52:7.59: EXPLANATION: DICE1/2/3 are lists with the DICE per class.
+	 For Class-0, we calculate DICE for whole foreground: all labels merged except background, label=0.
+	 Useful for multi-class problems.
+2020-6-12 20:52:7.59: EXPLANATION: DICE1 is calculated as segmentation over whole volume VS whole Ground Truth (GT).
+	 DICE2 is the segmentation within the ROI vs GT.
+	 DICE3 is segmentation within the ROI vs the GT within the ROI.
+2020-6-12 20:52:7.59: EXPLANATION: If an ROI mask has been provided, you should be consulting DICE2 or DICE3.
+2020-6-12 20:52:7.59: 
+2020-6-12 20:52:7.59: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2020-6-12 20:52:7.59: ~~~~~~~~	 Segmenting subject with index #9 	~~~~~~~~
+2020-6-12 20:52:7.59:  Loading subject with 1st channel at: /vol/bitbucket/sc5316/dHCP/t2normgaus4/sub-CC00787XX21_ses-19010_T2w.nii.gz
+2020-6-12 20:52:9.44:  WARN: Loaded labels are dtype [float64]. Rounding and casting to [int16]!
+2020-6-12 20:52:13.60: Starting to (tile) extract Segments from the images of the subject for Segmentation...
+2020-6-12 20:52:13.60: Finished (tiling) extracting Segments from the images of the subject for Segmentation.
+2020-6-12 20:52:13.60: Ready to make predictions for all image segments (parts).
+2020-6-12 20:52:13.60: Total number of Segments to process:700
+2020-6-12 20:52:13.60: Processed 0/700 segments.
+2020-6-12 20:52:32.45: Processed 140/700 segments.
+2020-6-12 20:52:50.97: Processed 280/700 segments.
+2020-6-12 20:53:9.36: Processed 420/700 segments.
+2020-6-12 20:53:27.75: Processed 560/700 segments.
+2020-6-12 20:53:45.97: Processed 700/700 segments.
+2020-6-12 20:53:45.97: TIMING: Segmentation of subject: [Forward Pass:] 89.42 secs.
+2020-6-12 20:53:54.63: Saving the new label (segmentation) image for the subject #9
+2020-6-12 20:53:55.14: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00787XX21_ses-19010_desc-drawem9_space-T2w_dseg_gaus4_Segm.nii.gz
+2020-6-12 20:53:55.14: Saving the new label (segmentation) image for the subject #9
+2020-6-12 20:53:57.25: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00787XX21_ses-19010_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass0.nii.gz
+2020-6-12 20:53:57.25: Saving the new label (segmentation) image for the subject #9
+2020-6-12 20:54:0.39: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00787XX21_ses-19010_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass1.nii.gz
+2020-6-12 20:54:0.40: Saving the new label (segmentation) image for the subject #9
+2020-6-12 20:54:3.60: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00787XX21_ses-19010_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass2.nii.gz
+2020-6-12 20:54:3.60: Saving the new label (segmentation) image for the subject #9
+2020-6-12 20:54:7.12: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00787XX21_ses-19010_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass3.nii.gz
+2020-6-12 20:54:7.12: Saving the new label (segmentation) image for the subject #9
+2020-6-12 20:54:10.40: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00787XX21_ses-19010_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass4.nii.gz
+2020-6-12 20:54:10.40: Saving the new label (segmentation) image for the subject #9
+2020-6-12 20:54:13.88: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00787XX21_ses-19010_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass5.nii.gz
+2020-6-12 20:54:13.88: Saving the new label (segmentation) image for the subject #9
+2020-6-12 20:54:17.22: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00787XX21_ses-19010_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass6.nii.gz
+2020-6-12 20:54:17.23: Saving the new label (segmentation) image for the subject #9
+2020-6-12 20:54:20.57: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00787XX21_ses-19010_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass7.nii.gz
+2020-6-12 20:54:20.57: Saving the new label (segmentation) image for the subject #9
+2020-6-12 20:54:23.72: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00787XX21_ses-19010_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass8.nii.gz
+2020-6-12 20:54:23.72: Saving the new label (segmentation) image for the subject #9
+2020-6-12 20:54:26.96: Image saved at: /vol/bitbucket/sc5316/deepmedic/examples/dHCPoutput/predictions/dHCPTestSession3_gaus4/predictions/sub-CC00787XX21_ses-19010_desc-drawem9_space-T2w_dseg_gaus4_ProbMapClass9.nii.gz
+2020-6-12 20:55:29.48: +++++++++++ Reporting Segmentation Metrics for Subject #9 +++++++++++
+2020-6-12 20:55:29.48: ACCURACY: (Testing) The Per-Class DICE Coefficients for subject with index #9 equal: DICE1=[ 0.9440 0.0086 0.0437 0.5126 0.4597 0.0000 0.2971 0.4955 0.3867 0.0001 ] DICE2=[ 0.9440 0.0086 0.0437 0.5126 0.4597 0.0000 0.2971 0.4955 0.3867 0.0001 ] DICE3=[ 0.9440 0.0086 0.0437 0.5126 0.4597 0.0000 0.2971 0.4955 0.3867 0.0001 ]
+2020-6-12 20:55:29.48: EXPLANATION: DICE1/2/3 are lists with the DICE per class.
+	 For Class-0, we calculate DICE for whole foreground: all labels merged except background, label=0.
+	 Useful for multi-class problems.
+2020-6-12 20:55:29.48: EXPLANATION: DICE1 is calculated as segmentation over whole volume VS whole Ground Truth (GT).
+	 DICE2 is the segmentation within the ROI vs GT.
+	 DICE3 is segmentation within the ROI vs the GT within the ROI.
+2020-6-12 20:55:29.48: EXPLANATION: If an ROI mask has been provided, you should be consulting DICE2 or DICE3.
+2020-6-12 20:55:29.48: 
+2020-6-12 20:55:29.48: +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2020-6-12 20:55:29.49: ++++++++++++++++++++++++ Segmentation of all subjects finished ++++++++++++++++++++++++++++
+2020-6-12 20:55:29.49: ++++++++++++++ Reporting Average Segmentation Metrics over all subjects +++++++++++++++++++
+2020-6-12 20:55:29.49: ACCURACY: (Testing) The Per-Class average DICE Coefficients over all subjects are: DICE1=[ 0.9398 0.0210 0.0494 0.4775 0.4443 0.0122 0.3551 0.4075 0.4201 0.0006 ] DICE2=[ 0.9398 0.0210 0.0494 0.4775 0.4443 0.0122 0.3551 0.4075 0.4201 0.0006 ] DICE3=[ 0.9398 0.0210 0.0494 0.4775 0.4443 0.0122 0.3551 0.4075 0.4201 0.0006 ]
+2020-6-12 20:55:29.49: EXPLANATION: DICE1/2/3 are lists with the DICE per class.
+	 For Class-0, we calculate DICE for whole foreground: all labels merged except background, label=0.
+	 Useful for multi-class problems.
+2020-6-12 20:55:29.49: EXPLANATION: DICE1 is calculated as segmentation over whole volume VS whole Ground Truth (GT).
+	 DICE2 is the segmentation within the ROI vs GT.
+	 DICE3 is segmentation within the ROI vs the GT within the ROI.
+2020-6-12 20:55:29.49: EXPLANATION: If an ROI mask has been provided, you should be consulting DICE2 or DICE3.
+2020-6-12 20:55:29.49: TIMING: Testing process lasted: 2046.80 secs.
+2020-6-12 20:55:29.49: ##########################################################################################
+2020-6-12 20:55:29.49: #		  Finished full Segmentation of Testing subjects   			#
+2020-6-12 20:55:29.49: ##########################################################################################
+2020-6-12 20:55:29.61: 
+2020-6-12 20:55:29.61: ======================================================
+2020-6-12 20:55:29.61: =========== Testing session finished =================
+2020-6-12 20:55:29.61: ======================================================
+2020-6-12 20:55:29.61: Finished.
