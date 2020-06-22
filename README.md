@@ -24,7 +24,7 @@ CIFAR10 dataset was used to replicate the findings from the paper 'ImageNet-trai
 
 Each jupyter notebook contains code used to load, normalise and split the CIFAR10 images in the format that the ResNet50 could train and test on, model architecture and model training/testing results on different images. Seven such notebooks are included in this repository which are listed below in the model name (introduced in the project report), file pairs.
 
-* ORIG_MODEL [natural_experiment/CIFAR10 ResNet50 Model.ipynb](natural_experiment/CIFAR10\ ResNet50\ Model.ipynb)
+* ORIG_MODEL [natural_experiment/CIFAR10 ResNet50 Model.ipynb](natural_experiment/CIFAR10%20ResNet50%20Model.ipynb)
 * STY_MODEL
 * STY_RED_MODEL
 * ORIG_TORCH
