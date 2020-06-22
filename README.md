@@ -25,12 +25,12 @@ CIFAR10 dataset was used to replicate the findings from the paper 'ImageNet-trai
 Each jupyter notebook contains code used to load, normalise and split the CIFAR10 images in the format that the ResNet50 could train and test on, model architecture and model training/testing results on different images. Seven such notebooks are included in this repository which are listed below in the model name (introduced in the project report), file pairs.
 
 * ORIG_MODEL [natural_experiment/CIFAR10 ResNet50 Model.ipynb](natural_experiment/CIFAR10%20ResNet50%20Model.ipynb)
-* STY_MODEL
-* STY_RED_MODEL
-* ORIG_TORCH
-* STY_TORCH
-* STY_RED_TORCH
-* STY_BIG_TORCH
+* STY_MODEL [natural_experiment/CIFAR10 ResNet50 Model Style.ipynb](natural_experiment/CIFAR10%20ResNet50%20Model%20Style.ipynb)
+* STY_RED_MODEL [natural_experiment/CIFAR10 ResNet50 Model Style Reduced.ipynb](natural_experiment/CIFAR10%20ResNet50%20Model%20Style%20Reduced.ipynb)
+* ORIG_TORCH [natural_experiment/CIFAR10 ResNet50 Torch.ipynb](natural_experiment/CIFAR10%20ResNet50%20Torch.ipynb)
+* STY_TORCH [natural_experiment/CIFAR10 ResNet50 Torch Style.ipynb](natural_experiment/CIFAR10%20ResNet50%20Torch%20Style.ipynb)
+* STY_RED_TORCH [natural_experiment/CIFAR10 ResNet50 Torch Style Reduced.ipynb](natural_experiment/CIFAR10%20ResNet50%20Torch%20Style%20Reduced.ipynb)
+* STY_BIG_TORCH [natural_experiment/CIFAR10 ResNet50 Torch Style Large.ipynb](natural_experiment/CIFAR10%20ResNet50%20Torch%20Style%20Large.ipynb)
 
 STY_BIG_TORCH model ran for 3 weeks on a 12GB RAM GPU but still did not manage to do a full run.
 
